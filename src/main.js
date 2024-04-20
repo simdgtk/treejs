@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { cookies } from "next/headers";
 // import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
 const canvas = document.querySelector("canvas.webgl");
