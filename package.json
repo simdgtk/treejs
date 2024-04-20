@@ -1,12 +1,11 @@
 {
-  "name": "threejs-journey-exercise",
+  "name": "treejs",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "deploy": "vercel --prod"
+    "build": "vite build"
   },
   "devDependencies": {
     "@tweakpane/core": "^2.0.3",
