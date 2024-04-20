@@ -1,7 +1,22 @@
+import Lenis from '@studio-freight/lenis'
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 // import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
+const main = document.querySelector("main");
+// smooth scroll
+const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time * 0.8)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
 
 const canvas = document.querySelector(".canvas");
 
@@ -49,10 +64,17 @@ gltfLoader.load("/models/plant.glb", (gltf) => {
   const clip = THREE.AnimationClip.findByName(clips, "Armature.004Action");
   console.log(clip);
   const action = mixer.clipAction(clip);
-  action.play();
+  // let animationAction = new THREE.AnimationAction(action, clip);
+  action.clampWhenFinished = true;
+  action.timeScale = 0.5;
+  action.crossFadeTo(action, 0.05, true);
+  action.loop = THREE.LoopOnce;
+  window.addEventListener("scroll", () => {
+    console.log("scroll");
+    action.play();
+  });
+  // console.log(animationAction);
 });
-const axesHelper = new THREE.AxesHelper();
-scene.add(axesHelper);
 
 let sizes = {
   height: window.innerHeight,
@@ -78,16 +100,17 @@ camera.position.y = 1;
 camera.position.x = 2;
 scene.add(camera);
 
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
+// const controls = new OrbitControls(camera, canvas);
+// controls.enableDamping = true;
 
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
+  alpha: true,
 });
 renderer.setSize(sizes.width, sizes.height);
 const clock = new THREE.Clock();
 const animate = () => {
-  controls.update();
+  // controls.update();
 
   mixer?.update(clock.getDelta());
   window.requestAnimationFrame(animate);

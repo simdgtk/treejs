@@ -1,15 +1,61 @@
+@import '_variables'
 html,
 body
-  overflow: hidden
-  background-color: aquamarine
+  background-color: $white
+  font-family: "Lato"
+  font-size: 18px
+  color: $text
+  scrollbar-color: $title rgba(255, 166, 0, 0)
+  scrollbar-width: thin
 
 .canvas
+  display: none
   position: fixed
   border: 2px solid red
   top: 0
   left: 0
   outline: none
+main 
+  margin: 0 auto
+  max-width: 1114px
+section
+  height: 100vh
+  margin-bottom: 100px
+  @media screen and (max-width: 1440px)
+    padding: 0 20px
+  &:last-child
+    margin-bottom: 0
+#text
+  display: flex
+  align-items: center
+  .text-content
+    display: flex
+    flex-direction: column
+    gap: 20px
+      
+    p
+      max-width: 450px
 
-h1
-  font-size: 80px
-  font-weight: 700
+  
+html.lenis, html.lenis body
+  height: auto
+.lenis.lenis-smooth
+  scroll-behavior: auto !important
+
+.lenis.lenis-smooth [data-lenis-prevent]
+  overscroll-behavior: contain
+
+.lenis.lenis-stopped
+  overflow: hidden
+
+.lenis.lenis-scrolling iframe
+  pointer-events: none
+  
+html.lenis #footer,
+.lenis.lenis-smooth #footer
+  scroll-behavior: none !important
+
+.tp-dfwv
+  position: static!important
+  top: 0!important
+  right: 0!important

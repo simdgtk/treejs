@@ -5,17 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Three.js Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheets/reset.css">
     <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 
 <body>
     <canvas class="canvas"></canvas>
-    <!-- <h1>
-        Tree JS
-    </h1>
-    <p>Grafik design is my passion</p> -->
-    <!-- Scroll animation -->
+    <main>
+        <section id="hero">
+            <h1>
+                Tree.JS
+            </h1>
+            <div class="center">
+                <span>Scrollez</span>
+            </div>
+        </section>
+        <section id="text">
+            <div class="text-content">
+                <h3>mon 1er projet web 3D</h3>
+                <p>Ça fait quelques années que je me suis intéressé à la 3D avec Blender, et c’est la 1ère fois que je
+                    mets de la 3D sur un site web, avec ThreeJS. N’hésitez pas à me dire ce que vous en pensez et à me
+                    donner des conseils !</p>
+            </div>
+        </section>
+        <section></section>
+        <section></section>
+    </main>
+    <footer>
+        <div class="footer-container">
+
+            <h2>Tree.JS</h2>
+            <div class="credits">
+                <p>Site réalisé avec <a href="https://threejs.org/" target="_blank">Three.js</a>, <a
+                        href="https://sass-lang.com/" target="_blank">Sass</a>, <a
+                        href="https://lenis.darkroom.engineering/" target="_blank">Lenis</a>, GSAP</p>
+                <p>Retrouvez mon portfolio, <a href="https://simondaguetkargl.fr/">simondaguetkargl.fr</a></p>
+            </div>
+        </div>
+        <canvas class="footer-canvas">
+        </canvas>
+    </footer>
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./footer-canvas.js"></script>
 </body>
 
 </html>
