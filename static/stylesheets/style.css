@@ -1,0 +1,27 @@
+.webgl {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+.h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  z-index: 2;
+}
+
+h2 {
+  font-size: 80px;
+  background: none;
+  color: blue;
+  font-weight: 700;
+}
+h2:nth-child(even) {
+  align-self: flex-end;
+  z-index: -3;
+}
+
+/*# sourceMappingURL=style.css.map */
