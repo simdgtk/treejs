@@ -3,7 +3,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 // import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
-const canvas = document.querySelector("canvas.webgl");
+const canvas = document.querySelector(".canvas");
 
 const scene = new THREE.Scene();
 
