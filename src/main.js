@@ -7,10 +7,6 @@ const main = document.querySelector("main");
 // smooth scroll
 const lenis = new Lenis()
 
-lenis.on('scroll', (e) => {
-  console.log(e)
-})
-
 function raf(time) {
   lenis.raf(time * 0.8)
   requestAnimationFrame(raf)
@@ -53,16 +49,11 @@ rgbeLoader.load("/textures/studio_photo.hdr", (texture) => {
 scene.add(hemisphereLight);
 let mixer;
 gltfLoader.load("/models/plant.glb", (gltf) => {
-  console.log(gltf);
   gltf.scene.position.y -= 2;
   scene.add(gltf.scene);
-  console.log("test");
   mixer = new THREE.AnimationMixer(gltf.scene);
   const clips = gltf.animations;
-  console.log(clips);
-  console.log("child", gltf.scene.children[0]);
   const clip = THREE.AnimationClip.findByName(clips, "Armature.004Action");
-  console.log(clip);
   const action = mixer.clipAction(clip);
   // let animationAction = new THREE.AnimationAction(action, clip);
   action.clampWhenFinished = true;
@@ -70,10 +61,8 @@ gltfLoader.load("/models/plant.glb", (gltf) => {
   action.crossFadeTo(action, 0.05, true);
   action.loop = THREE.LoopOnce;
   window.addEventListener("scroll", () => {
-    console.log("scroll");
     action.play();
   });
-  // console.log(animationAction);
 });
 
 let sizes = {
