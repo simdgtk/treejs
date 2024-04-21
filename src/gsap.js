@@ -45,4 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
     y: 20,
     ease: 'power2.inOut',
   })
-});7
+  // footer, pin with scroll trigger
+  const lastSection = document.getElementById('last-section')
+  const lastSectionHeight = lastSection.getBoundingClientRect().height
+  const lastSectionScrollTrigger = ScrollTrigger.create({
+    trigger: lastSection,
+    start: 'top top',
+    end: `+=${lastSectionHeight}`,
+    pin: true,
+    pinSpacing: false,
+  })
+});
