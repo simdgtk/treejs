@@ -5,7 +5,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 
 
 gsap.registerPlugin(ScrollTrigger,TextPlugin);
-document.addEventListener("DOMContentLoaded", () => {
+
   // title
   const titleChars = new SplitType("#title", {
     types: "words,chars",
@@ -55,4 +55,3 @@ document.addEventListener("DOMContentLoaded", () => {
     pin: true,
     pinSpacing: false,
   })
-});

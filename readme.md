@@ -1,15 +1,12 @@
 ## Setup
-
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
-
 ```bash
-# Install dependencies (only the first time)
 npm install
-
-# Run the local server at localhost:5173
 npm run dev
-
-# Build for production in the dist/ directory
+npm run sass
 npm run build
 ```
+lenis: 1.0.42,
+gsap: 3.12.5,
+split-type: 0.3.4,
+three: 0.158.0,
+tweakpane: 4.0.3

@@ -5,7 +5,6 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 const canvas = document.querySelector(".footer-canvas");
 
 const scene = new THREE.Scene();
-
 const gltfLoader = new GLTFLoader();
 const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 8);
 
@@ -18,8 +17,6 @@ gltfLoader.load("/models/plant.glb", (gltf) => {
   gltf.scene.rotation.y -= 1.25;
   scene.add(gltf.scene);
   /*const PARAMS = {
-    factor: 123,
-    title: "hello",
     positionY: gltf.scene.position.y,
     positionX: gltf.scene.position.x,
     positionZ: gltf.scene.position.z,
@@ -85,8 +82,6 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 const clock = new THREE.Clock();
 const animate = () => {
-  // controls.update();
-
   mixer?.update(clock.getDelta());
   window.requestAnimationFrame(animate);
   renderer.render(scene, camera);

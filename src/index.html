@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <canvas class="canvas"></canvas>
+    <canvas id="main-canvas" class="main-canvas"></canvas>
     <main>
         <section id="hero"> 
             <h1 id="title">
@@ -26,21 +26,29 @@
                 </div>
             </div>
         </section>
+        <script>
+            const hero = document.getElementById('main-canvas');
+            // go to footer when DOM is loaded
+            window.scrollTo(0, 0);
+            // go to 00 when page reload
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+        </script>
         <section id="text">
             <div class="text-content">
                 <h3>mon 1er projet web 3D</h3>
-                <p id="paragraph">Ça fait quelques années que je me suis intéressé à la 3D avec Blender, et c’est la 1ère fois que je
-                    mets de la 3D sur un site web, avec ThreeJS. N’hésitez pas à me dire ce que vous en pensez et à me
+                <p id="paragraph">Ça fait quelques années que je me suis intéressé à la 3D avec Blender, et c’est la 1ère fois que j'en mets sur un site web, avec ThreeJS. N’hésitez pas à me dire ce que vous en pensez et à me
                     donner des conseils !</p>
             </div>
         </section>
         <section></section>
         <section id="last-section">
-            cobn
+            
         </section>
     </main>
     <aside>
-        <footer>
+        <footer id="footer">
             <div class="footer-container">
     
                 <h2>Tree.JS</h2>
