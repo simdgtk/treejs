@@ -69,6 +69,7 @@ camera.position.y = 1;
 camera.position.x = 0;
 scene.add(camera);
 scene.add(hemisphereLight);
+let test;
 let mixer;
 let startMixer;
 document.addEventListener("DOMContentLoaded", () => {
@@ -82,7 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lenis.on('scroll', () => {
       console.log(lenis.velocity)
-      gltf.scene.rotation.y = lenis.progress * 20;
+      if (lenis.progress * 15 < 10){
+        gltf.scene.rotation.y = lenis.progress * 20;
+      }
       gltf.scene.rotation.x = lenis.progress * 0.5;
 
       if(lenis.progress * 15 > 3.5) {
@@ -111,9 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
     startAction.clampWhenFinished = true;
     console.log(startAction);
     scene.add(gltf.scene);
+    let animation = clip;
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
 
-    window.addEventListener("scroll", () => {
-      action.play();
+      if (scrollPosition > 100) {
+        // Déclencher la lecture de l'animation
+        action.play(animation);
+      } else {
+        // Mettre l'animation en pause
+        action.stop();
+      }
     });
   });
 });

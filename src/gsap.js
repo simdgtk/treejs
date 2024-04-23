@@ -5,13 +5,14 @@ import { TextPlugin } from "gsap/TextPlugin";
 
 
 gsap.registerPlugin(ScrollTrigger,TextPlugin);
-
+window.addEventListener('load', () => {
   // title
   const titleChars = new SplitType("#title", {
     types: "words,chars",
     tagName: "span",
   })
-  gsap.to('.char', {
+  let charTitle = document.querySelectorAll('.char')
+  gsap.to(charTitle, {
     y: 0,
     stagger: 0.05,
     delay: 0.1,
@@ -55,3 +56,5 @@ gsap.registerPlugin(ScrollTrigger,TextPlugin);
     pin: true,
     pinSpacing: false,
   })
+})
+
