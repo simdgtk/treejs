@@ -74,6 +74,7 @@ scene.add(camera);
 
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
+controls.maxDistance = 4;
 
 const renderer = new THREE.WebGLRenderer({
   canvas: canvas,
