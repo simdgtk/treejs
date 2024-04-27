@@ -1,10 +1,8 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 // import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 import Lenis from '@studio-freight/lenis'
 const lenis = new Lenis()
-
 
 
 function raf(time) {
@@ -38,22 +36,10 @@ rgbeLoader.load("/textures/studio_photo.hdr", (texture) => {
   texture.dispose();
   pmremGenerator.dispose();
 });*/
-
 let sizes = {
   height: window.innerHeight,
   width: window.innerWidth,
 };
-// rendre la page responsive
-window.addEventListener("resize", () => {
-  sizes.width = window.innerWidth;
-  sizes.height = window.innerHeight;
-
-  camera.aspect = sizes.width / sizes.height;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize(sizes.width, sizes.height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-});
 const aspect = sizes.width / sizes.height;
 let zoom = 7;
 const camera = new THREE.OrthographicCamera(
@@ -69,7 +55,6 @@ camera.position.y = 1;
 camera.position.x = 0;
 scene.add(camera);
 scene.add(hemisphereLight);
-let test;
 let mixer;
 let startMixer;
 document.addEventListener("DOMContentLoaded", () => {
@@ -82,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gltf.scene.rotation.y = lenis.progress * 20;
 
     lenis.on('scroll', () => {
-      console.log(lenis.velocity)
       if (lenis.progress * 15 < 10){
         gltf.scene.rotation.y = lenis.progress * 20;
       }
@@ -98,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
         gltf.scene.position.x = 0;
         camera.zoom = lenis.progress * 15;
       }
-      console.log(lenis.progress * 15)
     })
     mixer = new THREE.AnimationMixer(gltf.scene);
     startMixer = new THREE.AnimationMixer(gltf.scene);
@@ -119,11 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const scrollPosition = window.scrollY;
 
       if (scrollPosition > 100) {
-        // Déclencher la lecture de l'animation
-        action.play(animation);
+        action.reset().play().paused = true
+        action.time = action.getClip().duration * scrollPosition / 2000;
+        // console.log(action.time)
       } else {
-        // Mettre l'animation en pause
-        action.stop();
+        action.time = 0;
       }
     });
   });
@@ -140,6 +123,8 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true,
 });
 renderer.setSize(sizes.width, sizes.height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
+
 const clock = new THREE.Clock();
 const animate = () => {
   mixer?.update(clock.getDelta());
@@ -147,4 +132,3 @@ const animate = () => {
   renderer.render(scene, camera);
 };
 animate();
-console.log("hello");
