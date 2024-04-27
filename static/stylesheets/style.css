@@ -140,15 +140,6 @@ html.lenis #footer,
   right: 0 !important;
 }
 
-#title {
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.char {
-  transform: translateY(300px);
-  transition: transform 0.5s;
-}
-
 @font-face {
   src: url("../fonts/cooperHewitt/CooperHewitt-Medium.woff") format("woff");
   font-family: "Cooper Hewitt";
@@ -315,6 +306,15 @@ h1 {
   height: 1px;
   background-color: #606C38;
   margin: 0 auto;
+}
+
+#title {
+  clip-path: polygon(0 0, 100% -250%, 100% 100%, 0% 100%);
+}
+
+.char {
+  transform: translateY(300px);
+  transition: transform 0.5s;
 }
 
 /*# sourceMappingURL=style.css.map */
