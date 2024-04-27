@@ -52,18 +52,15 @@ let sizes = {
   height: window.innerHeight,
   width: window.innerWidth,
 };
-// rendre la page responsive
 window.addEventListener("resize", () => {
-  // update sizes
-  sizes.width = canvas.clientWidth;
-  sizes.height = canvas.clientHeight;
-  // update camera
+  sizes = {
+    height: window.innerHeight,
+    width: window.innerWidth,
+  };
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
-
-  // update renderer
   renderer.setSize(sizes.width, sizes.height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 3));
 });
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
 
